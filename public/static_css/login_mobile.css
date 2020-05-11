@@ -1,0 +1,386 @@
+* {
+    box-sizing: border-box;
+}
+
+#login_modal h1, h2 {
+    font-weight: bold;
+    margin: 0;
+}
+
+#login_modal p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+#login_modal span {
+    font-size: 12px;
+}
+
+#login_modal a {
+    color: rgb(158, 157, 157);
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+#login_modal a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.main-container {
+    background: #343a40;
+    /* border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px; */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px !important;
+    /* max-width: 100%; */
+    min-height: 500px;
+    color: white;
+}
+
+.form-container form {
+    background: #424547;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.form-container .div {
+    position: relative;
+    width: 100%;
+}
+
+.form-container .div .fas {
+    left: 0 !important;
+    bottom: 24px !important;
+    position: absolute;
+}
+
+/* .form-container .div input::placeholder{
+    padding-left: 20px !important;
+} */
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.form-container input , #user_type{
+    background: transparent;
+    border: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid grey !important;
+    margin: 8px 0;
+    width: 100%;
+    color: white;
+    box-shadow: none;
+    text-align: center;
+    outline: none;
+}
+
+.form-container input:active {
+    box-shadow: none;
+}
+
+#login_modal button {
+    border: none;
+    background: #131c29;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    -webkit-transition: transform 80ms ease-in;
+    -moz-transition: transform 80ms ease-in;
+    -ms-transition: transform 80ms ease-in;
+    -o-transition: transform 80ms ease-in;
+    margin-top: 5px;
+}
+
+#login_modal button:active {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+}
+
+#login_modal button:focus {
+    outline: none;
+}
+
+#login_modal button .ghost {
+    background: transparent;
+    border-color: #fff;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+}
+
+.signIn-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.signUp-container {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    /* opacity: 0; */
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    -webkit-transition: transform 0.6s ease-in-out;
+    -moz-transition: transform 0.6s ease-in-out;
+    -ms-transition: transform 0.6s ease-in-out;
+    -o-transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: #777576;
+    background: linear-gradient(to right, rgb(247, 84, 84), rgb(247, 73, 10)) no-repeat 0 0 / cover;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+    -webkit-transform: translateX(-20%);
+    -moz-transform: translateX(-20%);
+    -ms-transform: translateX(-20%);
+    -o-transform: translateX(-20%);
+}
+
+/* Animation */
+
+/* Move sign In to right */
+
+.main-container.right-panel-active .signIn-container {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+}
+
+/* Move overlay to left */
+
+.main-container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+}
+
+/* Bring Signup over sign in */
+
+.main-container.right-panel-active .signUp-container {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+/* Move overlay back to the right */
+
+.main-container.right-panel-active .overlay {
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+}
+
+.main-container.right-panel-active .overlay-left {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.main-container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+    -webkit-transform: translateX(20%);
+    -moz-transform: translateX(20%);
+    -ms-transform: translateX(20%);
+    -o-transform: translateX(20%);
+}
+
+.button-box {
+    width: 100% !important;
+    display: none;
+    position: relative !important;
+    height: 40px !important;
+    box-shadow: 0 0 20px 9px #1312121f !important;
+}
+
+.toggle-btn {
+    padding: 5px 50px !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: 0 !important;
+    outline: none !important;
+    position: relative !important;
+    /* text-align: center; */
+}
+
+#btn {
+    top: 0 !important;
+    left: 0;
+    position: absolute !important;
+    width: 50% !important;
+    height: 100% !important;
+    background: linear-gradient(to right, #ff105f, #ffaf06) !important;
+    transition: .5s !important;
+    -webkit-transition: .5s !important;
+    -moz-transition: .5s !important;
+    -ms-transition: .5s !important;
+    -o-transition: .5s !important;
+}
+
+.modal-body {
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.modal-content {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.modal-dialog {
+    max-width: 768px !important;
+}
+
+@media (min-width:320px) and (max-width:576px) {
+    #login_modal .button-box button {
+        width: 49.3%;
+    }
+    .main-container {
+        width: 100% !important;
+        margin: auto;
+    }
+    .signIn-container {
+        width: 100%;
+        margin-top: 40px;
+        left: 0;
+    }
+    .signUp-container {
+        width: 100%;
+        left: 350px;
+        margin-top: 40px;
+    }
+    .overlay-container {
+        display: none;
+    }
+    .button-box {
+        display: block;
+    }
+    .toggle-btn {
+        padding: 5px 50px !important;
+    }
+}
+
+@media (min-width:320px) and (max-width: 340px) {
+    .signIn-container {
+        width: 100%;
+        margin-top: 40px;
+        margin: auto;
+    }
+    .signUp-container {
+        width: 100%;
+        left: 350px !important;
+        margin-top: 40px;
+    }
+    .toggle-btn {
+        padding: 5px 45px !important;
+    }
+}
