@@ -30,6 +30,9 @@ class SocialAuthGoogleControllerController extends Controller
     public function callback(SocialGoogleAccountService $service)
     {
         $user = $service->createOrGetUser(Socialite::driver('google')->user());
+
+        Session::put('google_email',$user->email);
+
         // echo $user->name;
         // echo '<pre>';
         // print_r($user);

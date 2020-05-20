@@ -83,7 +83,7 @@
                 @csrf()
                     <h1>Sign up</h1>
                     <input type="text" name="username" placeholder="Username">
-                    <input type="text" name="email" placeholder="Email">
+                    <input type="text" name="email" value='{{Session::get("google_email")}}' placeholder="Email">
                     <select name="user_type" id="" class="form-control">
                         <option value="" selected="selected">Select Type</option>
                         <option value="user">User</option>

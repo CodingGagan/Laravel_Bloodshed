@@ -39,7 +39,7 @@
                 </button>
             </div>
             <div class="modal-body text-center p-2 alert-success">
-                Your registeration is successfully done !
+                {{$register_done}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -29,6 +29,7 @@ class SocialGoogleAccountService
                     // 'name' => $providerUser->getName(),
                     // 'password' => md5(rand(1,10000)),
                 ]);
+                // Session::put('google_email',$providerUser->getEmail());
             }
             $account->user()->associate($user);
             $account->save();

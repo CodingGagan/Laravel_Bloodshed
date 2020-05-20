@@ -83,6 +83,11 @@ class registration_page extends Controller
     {
         echo "<pre>";
         print_r($request->all());
+
+        $update_data = registration::where('email',$request->email)->update(['username'=>$request->username,"password"=>Hash::make($request->password), 'user_type'=>$request->user_type]);
+        session()->flash('register_done',"You're register with us successfully");
+        Session()->flush();
+        return redirect('/');
     }
 
     /**
