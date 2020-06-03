@@ -168,98 +168,89 @@
     @yield('main_content')
 
     @section('login_signup')
+    <div class="modal fade" id="login_modal" style="z-index: 11111" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: transparent !important; margin-top: -10px;">
 
+                <div class="modal-body">
+                    <div class="content">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="pill" href="#login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#regis">Register</a>
+                            </li>
+                        </ul>
 
+                        <div class="tab-content">
+                            <div id="login" class="container tab-pane active">
+                                <div class="error_msg alert alert-danger text-center" id="error_msg"></div>
+                                <form action="" method="POST" class="mt-3">
+                                    <div class="div form-group">
+                                        <label for="">Email address</label>
+                                        <input class="form-control" type="email" name="login_email" id="login_email" placeholder="name@example.com" required>
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="div form-group">
+                                        <label for="">Password</label>
+                                        <input class="form-control" type="password" name="login_password" id="login_password" placeholder="Password" required>
+                                        <small id="emailHelp" class="form-text text-muted">Password incorrect.</small>
+                                    </div>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                        <label class="custom-control-label" for="customCheck">I agree to
+                                            the<b> Term of User</b></label>
+                                    </div>
+                                    <a href="">Forget Password</a>
+                                    <div class="row">
+                                        <button type="button" class="btn btn-info" id="login_button">Login</button>
+                                        <button type="buttom" class="btn btn-danger" id="close" data-dismiss="modal">close</button>
+                                    </div>
 
-    <div class="modal fade" style="z-index: 111111;" id="login_modal">
-        <div class="modal-dialog modal-dialog-centered" style="width: 80% !important; margin: 30px auto;">
-            <div class="modal-content mt-5">
-                <!-- tabs -->
-                <!-- Nav tabs -->
-                <div class="modal-c-tabs">
-                    <!-- tabs -->
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="login_tab">
-                            <div class="modal-body">
-
+                                </form>
+                            </div>
+                            <div id="regis" class="container tab-pane fade">
+                                <h3 class="form__heading text-center"> Create Account</h3>
+                                <h2 class="text-center">with Social Media</h2>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-lg-12 px-0 mx-auto">
-                                            <div class="main-container" id="main-container">
-                                                <div class="button-box">
-                                                    <div id="btn"></div>
-                                                    <button type="button" class="toggle-btn" onclick="signIn()">Sign In</button>
-                                                    <button type="button" class="toggle-btn" onclick="signUp()">Sign Up</button>
-                                                </div>
-                                                <div class="form-container signUp-container" id="signUp-container">
-
-                                                    <form action="{{url('register_form')}}" method="POST">
-                                                        @csrf()
-                                                        <h2>Create Account</h2>
-                                                        <div class="social-container">
-                                                            <a href="" class="social"><i class="fab fa-facebook-f"></i></a>
-                                                            <a href="{{url('/redirect')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                                            <a href="" class="social"><i class="fab fa-twitter"></i></a>
-                                                        </div>
-                                                        <span>or use your email for registration</span>
-                                                        <div class="div">
-                                                            <i class="fas fa-user-alt"></i><input type="text" name="username" placeholder="Username">
-                                                        </div>
-                                                        <div class="div">
-                                                            <i class="fas fa-user-alt"></i>
-                                                            <select name="user_type" id="user_type" class="form-control">
-                                                            <option selected="selected" class="bg-dark text-dark text-center pl-2">Select Your Type</option>
-                                                            <option value="user" class="bg-dark text-light pl-2">User</option>
-                                                            <option value="organizer" class="bg-dark text-light pl-2">Organizer</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="div">
-                                                            <i class="fas fa-envelope"></i><input type="email" name="signup_email" id="" placeholder="Email">
-                                                        </div>
-                                                        <div class="div">
-                                                            <i class="fas fa-lock"></i><input type="password" name="" id="signup_password" placeholder="Password">
-                                                        </div>
-                                                        <button type="submit" id="registeration">Sign Up</button>
-                                                    </form>
-                                                </div>
-                                                <div class="form-container signIn-container" id="signIn-container">
-
-                                                    <form action="#">
-                                                        <h1>Sign In</h1>
-                                                        <div class="social-container">
-                                                            <a href="" class="social"><i class="fab fa-facebook-f"></i></a>
-                                                            <a href="" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                                            <a href="" class="social"><i class="fab fa-twitter"></i></a>
-                                                        </div>
-                                                        <span>or use your account</span>
-                                                        <div class="div">
-                                                            <i class="fas fa-envelope"></i><input type="email" name="login_email" id="" placeholder="Email">
-                                                        </div>
-                                                        <div class="div">
-                                                            <i class="fas fa-lock"></i><input type="password" name="login_password" id="" placeholder="Password">
-                                                        </div>
-                                                        <a href="">Forgot your password?</a>
-                                                        <button type="button" id="login_button">Sign In</button>
-                                                    </form>
-                                                </div>
-                                                <div class="overlay-container">
-                                                    <div class="overlay">
-                                                        <div class="overlay-panel overlay-left">
-                                                            <h1>Welcome Back!</h1>
-                                                            <p>To keep connected with us, please login with your personal info.</p>
-                                                            <button class="ghost" id="signIn">Sign In</button>
-                                                        </div>
-                                                        <div class="overlay-panel overlay-right">
-                                                            <h1>Hello, Friend!</h1>
-                                                            <p>Enter your personal details and start journey with us.</p>
-                                                            <button class="ghost" id="signUp">Sign Up</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="col">
+                                            <button type="button" onclick="window.location = '<?php echo $login_button ?>';" class=" google btn">
+                                                <i class="fab fa-google-plus-g">
+                                                </i> Login with Google+
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
+                                <form action="" method="post" class="form">
+                                    <p class="">or use your email for registeration</p>
+                                    <div class="form-group">
+                                        <label for="">Username</label>
+                                        <input type="text" placeholder="gagan007soul" class="form-control" id="username" autocomplete="true">
+                                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Email address</label>
+                                        <input type="email" placeholder="name@example.com" class="form-control" id="email" autocomplete="true">
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Password</label>
+                                        <input type="password" placeholder="Password" class="form-control" id="password" pattern="^\w{6,8}$" autocomplete="true">
+                                        <small id="emailHelp" class="form-text text-muted">Password incorrect.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Which type you wanna choose.</label>
+                                        <select name="" id="role" class="form-control">
+                                            <option value="user">User</option>
+                                            <option value="organizer">Organizer</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-secondary" id="registeration">Sign Up</button>
+                                    <button type="buttom" class="btn btn-danger" id="close" data-dismiss="modal">close</button>
+
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -267,8 +258,6 @@
             </div>
         </div>
     </div>
-    <script src="{{asset('JavaScript/login_mobile.js')}}"></script>
-
     @show
 
 

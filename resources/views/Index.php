@@ -1,68 +1,73 @@
-@extends('layout.user_navbar_footer')
-
-@section('navbar')
-@parent
-@endsection
-
-@section('main_content')
-
-<link rel="stylesheet" href="{{asset('static_css/style.css')}}">
-<!-- Registratiojn error -->
-@if($errors->any())
-<div class="modal fade show" id="error">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-header">
-            <a href="" class="close" data-dismiss="#error">&times</a>
-        </div>
-        <div class="modal-content">
-            @foreach($errors->all() as $error)
-            <div class="alert alert-danger" style="height: 40vh">
-                {{$error}}
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endif
-
-<!-- Successfull registration message -->
-@if(session()->has('register_done'))
-<!-- Button trigger modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center p-2 alert-success">
-                {{$register_done}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<?php
+error_reporting(0);
+session_start();
+// echo $_SESSION['already_registered'];
+// die();
+if (isset($_SESSION['already_registered'])) {
+?>
+    <div class="modal fade" id="error_login" tabindex="-1" role="dialog" style="z-index: 11111;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content alert-danger">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="text-center text-danger p-1">You're already registered with us. Please Login</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
-@endif
+    <script>
+        $(function() {
+            console.log('error-login');
+            $('#error_login').modal("show");
+        });
+    </script>
+<?php
+}
 
-
-<!-- $connect = new mysqli('localhost', 'root', '', 'bloodshed');
+$connect = new mysqli('localhost', 'root', '', 'bloodshed');
 $all_events_new = array();
 $select_all_event  = "SELECT * FROM tournament_status WHERE `status` = 'granted'";
 $result = $connect->query($select_all_event);
 while ($all_events = mysqli_fetch_assoc($result)) {
     $all_events_new[] = $all_events;
-} -->
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Gaming Tournament</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../Jquery/jquery-3.4.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../Font/fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" href="../static_css/style1.css">
+    <link rel="stylesheet" href="../static_css/header.css">
+    <link rel="stylesheet" href="../static_css/foot.css">
+    <link rel="stylesheet" href="../static_css/login.css">
+    <link rel="stylesheet" href="../static_css/hamburgermenu.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
 
     <!-- Home Page Carousel -->
 
     <!-- Jumbotron -->
     <div class="jumbotron p-0 m-0">
+
+        <!-- Adding main Navbar -->
+        <?php
+        include 'header.php';
+        ?>
         <!-- Slider Section -->
         <div class="container-fluid">
             <!-- Row One -->
@@ -232,6 +237,7 @@ while ($all_events = mysqli_fetch_assoc($result)) {
             <!-- End of Row One -->
         </div>
     </div>
+
     <!-- Second Section -->
     <div class="second-section">
 
@@ -435,10 +441,10 @@ while ($all_events = mysqli_fetch_assoc($result)) {
                         <h5>PARTICIPATE IN FREE TOURNAMENTS</h5>
                         <h2>Play and Win Cash Prizes!</h2>
                         <p>
-                            Bloodshed is offering its users a wide variety of free tournaments to participate in. All you have to do is register, browse and find tournament for your favorite game!
+                            PlayMonk is offering its users a wide variety of free tournaments to participate in. All you have to do is register, browse and find tournament for your favorite game!
                         </p>
                         <p>
-                            The best part? Entry for official Bloodshed tournaments is free! Drop into the battlegrounds today and start dominating your opponents! Win cash prizes in games like PUBG Mobile and Fortnite by playing for free!
+                            The best part? Entry for official PlayMonk tournaments is free! Drop into the battlegrounds today and start dominating your opponents! Win cash prizes in games like PUBG Mobile and Fortnite by playing for free!
                         </p>
                     </div>
                     <button class="btn text-white btn-lg" style="background: #fe0000;">Browse Tournament</button>
@@ -604,16 +610,17 @@ while ($all_events = mysqli_fetch_assoc($result)) {
         </div>
     </section>
 
-
-    
+    <?php
+    include 'footer.php';
+    ?>
+    <?php include '../login_modal.php' ?>
 
     <script src="../login.js"></script>
     <script src="../JavaScript/Home.js"></script>
 
-    @endsection
+    <script>
 
-    @section('footer')
+    </script>
+</body>
 
-    @parent
-
-    @endsection
+</html>
