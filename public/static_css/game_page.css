@@ -17,7 +17,7 @@ h2, h3 {
 
 .game_main {
     min-height: 70vh;
-    background: url(images/s2-battle-pass-promo-desktop-2.jpg);
+    background: url(../images/s2-battle-pass-promo-desktop-2.jpg);
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, .75);
@@ -74,7 +74,7 @@ h2, h3 {
 
 .first-parallax {
     min-height: 300px;
-    background: url(images/pubg.jpg);
+    background: url(../images/pubg.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
@@ -104,7 +104,7 @@ h2, h3 {
 
 .game-section-1 .left_game-section {
     height: 100%;
-    background: url('images/pubg1.jpg');
+    background: url('../images/pubg1.jpg');
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -205,7 +205,7 @@ h2, h3 {
 
 .second-parallax {
     min-height: 300px;
-    background: url(images/fn1.jpg);
+    background: url(../images/fn1.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
@@ -229,7 +229,7 @@ h2, h3 {
 
 .game-section-2 .left_game-section {
     height: 100%;
-    background: url('images/ff3.jpg');
+    background: url('../images/ff3.jpg');
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -239,7 +239,7 @@ h2, h3 {
 
 .third-parallax {
     min-height: 300px;
-    background: url(images/cod2.jpg);
+    background: url(../images/cod2.jpg);
     background-size: cover;
     background-attachment: fixed;
 
@@ -263,7 +263,7 @@ h2, h3 {
 
 .game-section-3 .left_game-section {
     height: 100%;
-    background: url('images/cod1.jpg');
+    background: url('../images/cod1.jpg');
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -273,7 +273,7 @@ h2, h3 {
 
 .fourth-parallax {
     min-height: 300px;
-    background: url(images/freefire.jpg);
+    background: url(../images/freefire.jpg);
     background-size: cover;
     background-attachment: fixed;
 
@@ -303,7 +303,7 @@ h2, h3 {
 
 .game-section-4 .left_game-section {
     height: 100%;
-    background: url('images/freefire.jpg');
+    background: url('../images/freefire.jpg');
     background-size: cover;
     background-position: center center;
     position: relative;

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('Font/fontawesome-free-5.12.0-web/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('static_css/header.css')}}">
     <link rel="stylesheet" href="{{asset('static_css/foot.css')}}">
-    <link rel="stylesheet" href="{{asset('static_css/login_mobile.css')}}">
+    <link rel="stylesheet" href="{{asset('static_css/login.css')}}">
     <link rel="stylesheet" href="{{asset('static_css/hamburger.css')}}">
 </head>
 
@@ -104,14 +104,14 @@
                         <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                         <ul class="navbar-nav first w-100 m-0" id="left-navbar">
                             <div class="left-navbar mx-auto navbar-nav">
-                                <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                                <li class="nav-item"><a href="game_page.php" class="nav-link">Games</a></li>
-                                <li class="nav-item"><a href="tournament.php" class="nav-link">Events</a></li>
+                                <li class="nav-item"><a href="{{asset(url('/'))}}" class="nav-link">Home</a></li>
+                                <li class="nav-item"><a href="{{asset(url('/game'))}}" class="nav-link">Games</a></li>
+                                <li class="nav-item"><a href="{{asset(url('/tournament'))}}" class="nav-link">Events</a></li>
                             </div>
                         </ul>
                         <!-- Navbar Brand  -->
                         <div class="nav-brand-div">
-                            <a href="index.php" class="brnd-pos navbar-brand d-none position-absolute d-lg-block mx-auto">
+                            <a href="#!" class="brnd-pos navbar-brand d-none position-absolute d-lg-block mx-auto">
                                 <img src="https://www.iglnetwork.com/assets/images/logo.png" alt="">
                             </a>
                         </div>
@@ -119,9 +119,9 @@
 
                         <ul class="navbar-nav first w-100 m-0" id="right-navbar">
                             <div class="right-navbar mx-auto navbar-nav">
-                                <li class="nav-item"><a href="leaderboard.php" class="nav-link">Leaderboard</a></li>
-                                <li class="nav-item"><a href="about_us.php" class="nav-link">About Us</a></li>
-                                <li class="nav-item"><a href="contactUs.php" class="nav-link">Contact</a></li>
+                                <li class="nav-item"><a href="{{asset(url('/leaderboard'))}}" class="nav-link">Leaderboard</a></li>
+                                <li class="nav-item"><a href="{{asset(url('/about'))}}" class="nav-link">About Us</a></li>
+                                <li class="nav-item"><a href="{{asset(url('/contact'))}}" class="nav-link">Contact</a></li>
 
                                 <li class="nav-item"><a href="#" class="nav-link d-lg-none">Login</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link d-lg-none">Register</a></li>
@@ -216,19 +216,19 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col">
-                                            <button type="button" onclick="window.location = '<?php echo $login_button ?>';" class=" google btn">
+                                            <button type="button" class=" google btn">
                                                 <i class="fab fa-google-plus-g">
                                                 </i> Login with Google+
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                <form action="" method="post" class="form">
+                                <form action="{{url('registration')}}" method="post" class="form">
+                                    @csrf();
                                     <p class="">or use your email for registeration</p>
                                     <div class="form-group">
                                         <label for="">Username</label>
                                         <input type="text" placeholder="gagan007soul" class="form-control" id="username" autocomplete="true">
-                                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                     </div>
                                     <div class="form-group">
                                         <label for="">Email address</label>
@@ -237,8 +237,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Password</label>
-                                        <input type="password" placeholder="Password" class="form-control" id="password" pattern="^\w{6,8}$" autocomplete="true">
-                                        <small id="emailHelp" class="form-text text-muted">Password incorrect.</small>
+                                        <input type="password" placeholder="Password" class="form-control" id="password" autocomplete="true">
+
                                     </div>
                                     <div class="form-group">
                                         <label for="">Which type you wanna choose.</label>
@@ -247,7 +247,7 @@
                                             <option value="organizer">Organizer</option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-secondary" id="registeration">Sign Up</button>
+                                    <button type="submit" class="btn btn-secondary" name="registeration" id="registeration">Sign Up</button>
                                     <button type="buttom" class="btn btn-danger" id="close" data-dismiss="modal">close</button>
 
                                 </form>
@@ -258,6 +258,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+    </script>
+
     @show
 
 

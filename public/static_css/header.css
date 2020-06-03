@@ -8,22 +8,17 @@ html {
     scroll-behavior: smooth;
 }
 
-
 /* Navbar */
 
 header a {
     color: white;
 }
 
-
 /* Button's Start */
-
 
 /* btn Hover and after */
 
-.btn_red,
-.btn_red:link,
-.btn_red:visited {
+.btn_red, .btn_red:link, .btn_red:visited {
     position: relative;
     display: inline-block;
     text-decoration: none;
@@ -42,8 +37,7 @@ header a {
     box-shadow: 0px 8px 20px rgb(110, 110, 110);
 }
 
-.btn_red:active,
-.btn_red:focus {
+.btn_red:active, .btn_red:focus {
     outline: none;
     transform: translateY(1px);
     box-shadow: 0px 8px 10px #000;
@@ -74,7 +68,6 @@ header a {
     width: 15%;
 }
 
-
 /* Upper menu Start */
 
 .primary-navbar {
@@ -87,8 +80,7 @@ header a {
     vertical-align: middle;
 }
 
-.header_social a,
-.access a {
+.header_social a, .access a {
     text-decoration: none;
     color: #3486cc;
     font-size: 20px;
@@ -97,11 +89,9 @@ header a {
     /* color: orangered; */
 }
 
-.login_button,
-.reg_button {
+.login_button, .reg_button {
     font-size: 18px;
 }
-
 
 /* Upper menu End */
 
@@ -175,7 +165,6 @@ header a {
     transform: translateX(-50%);
 }
 
-
 /* Media Queries for Max-Width 1200px */
 
 @media (max-width: 1200px) {
@@ -187,7 +176,6 @@ header a {
         display: block !important;
     }
 }
-
 
 /* Media Queries for Max-Width 991px */
 
@@ -205,15 +193,13 @@ header a {
         margin: unset;
         width: 100% !important;
     }
-    .header_outer_area::before,
-    .header_outer_area::after {
+    .header_outer_area::before, .header_outer_area::after {
         display: none;
     }
     .navbar-brand {
         margin: auto;
     }
-    .bg-pos::after,
-    .bg-pos::before {
+    .bg-pos::after, .bg-pos::before {
         display: none;
     }
     /* Navbar Slide from left Style Code */
@@ -244,11 +230,9 @@ header a {
     }
 }
 
-
 /* Hamburger */
 
-.navigation a,
-.navigation span {
+.navigation a, .navigation span {
     font-size: 1.5rem;
 }
 
@@ -311,8 +295,7 @@ header a {
     margin: 1rem;
 }
 
-.navigation__link:link,
-.navigation__link:visited {
+.navigation__link:link, .navigation__link:visited {
     display: inline-block;
     /* font-family: Georgia, "Times New Roman", Times, serif; */
     font-size: 1.5rem;
@@ -326,13 +309,11 @@ header a {
     transition: all 0.5s;
 }
 
-.navigation__link:link span,
-.navigation__link:visited span {
+.navigation__link:link span, .navigation__link:visited span {
     margin-right: 1.5rem;
 }
 
-.navigation__link:hover,
-.navigation__link:active {
+.navigation__link:hover, .navigation__link:active {
     background-position: 100%;
     color: #55c57a;
     transform: translateX(1rem);
@@ -352,17 +333,14 @@ header a {
     margin-top: 2rem;
 }
 
-.navigation__icon,
-.navigation__icon::before,
-.navigation__icon::after {
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
     width: 2rem;
     height: 2px;
     background-color: #333;
     display: inline-block;
 }
 
-.navigation__icon::before,
-.navigation__icon::after {
+.navigation__icon::before, .navigation__icon::after {
     content: "";
     position: absolute;
     left: 0;
@@ -397,4 +375,50 @@ header a {
 .navigation__checkbox:checked+.navigation__button .navigation__icon::after {
     top: 0;
     transform: rotate(-135deg);
+}
+
+/* User profile bottom menu */
+
+.user_profile {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    overflow-x: auto;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #444444;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav__link:hover {
+    background-color: #eeeeee;
+}
+
+.nav__link--active {
+    color: #009578;
+}
+
+.nav__icon {
+    font-size: 18px;
+}
+
+@media (min-width: 320px){
+    
 }

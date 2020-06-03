@@ -13,15 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Static Page route
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/game', function () {
+    return view('game_page');
+});
+Route::get('/tournament', function () {
+    return view('tournament');
+});
+Route::get('/leaderboard', function () {
+    return view('leaderboard');
+});
+Route::get('/contact', function () {
+    return view('contactUs');
+});
+Route::get('/about', function () {
+    return view('about_us');
+});
 
-// Index Page
-Route::get('/', 'registration_page@index');
-
-Route::post('register_form', 'registration_page@store');
+// registration
+Route::post('registration','registration_page@store');
 
 
 // Registration complete with google.
-Route::get('register_complete',function(){
+Route::get('register_complete', function () {
     return view('registration_complete');
 });
 

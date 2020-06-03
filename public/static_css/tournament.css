@@ -9,7 +9,10 @@ h1 {
     font-family: 'Audiowide', cursive;
 }
 
-h2,h3,h4 {font-family: 'Poly', serif;}
+h2, h3, h4 {
+    font-family: 'Poly', serif;
+}
+
 /* Row One */
 
 /* Bgimg */
@@ -59,6 +62,11 @@ h2,h3,h4 {font-family: 'Poly', serif;}
 /* Eof Row one */
 
 /* Row Two */
+.event_card_box {
+    box-shadow: 0px 0px 50px #382727;
+    padding: 10px;
+}
+
 
 .main-div {
     position: relative;
@@ -104,6 +112,10 @@ h2,h3,h4 {font-family: 'Poly', serif;}
     background-color: rgba(0, 0, 0, 0.8);
     background-blend-mode: color;
     border: 8px solid #343a40;
+}
+
+#event_card {
+    color: white;
 }
 
 .inner-div2 {

@@ -1,6 +1,4 @@
 @import "global_import.css";
-/* Hamburger */
-
 .navigation a, .navigation span {
     font-size: 1.5rem;
 }
@@ -11,11 +9,11 @@
 
 .navigation__button {
     background-color: #fff;
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     position: fixed;
-    top: 3rem;
-    right: 3rem;
+    top: 1rem;
+    right: 1rem;
     border-radius: 50%;
     z-index: 2000;
     text-align: center;
@@ -24,13 +22,12 @@
 }
 
 .navigation__background {
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50%;
     position: fixed;
-    top: 3rem;
-    right: 3rem;
-
+    top: 1rem;
+    right: 1rem;
     background-image: radial-gradient(#192231, #131c29);
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.51, 0.91, 0.54, 0.89);
@@ -41,7 +38,7 @@
     height: 100vh;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     z-index: 1500;
     opacity: 0;
     width: 0;
@@ -91,6 +88,7 @@
 
 .navigation__checkbox:checked~.navigation__nav {
     opacity: 1;
+    left: 0;
     width: 100%;
 }
 
@@ -100,7 +98,7 @@
 
 .navigation__icon {
     position: relative;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
@@ -118,19 +116,19 @@
 }
 
 .navigation__icon::before {
-    top: -0.6rem;
+    top: -0.4rem;
 }
 
 .navigation__icon::after {
-    top: 0.6rem;
+    top: 0.4rem;
 }
 
 .navigation__button:hover .navigation__icon::before {
-    top: -.8rem;
+    top: -.6rem;
 }
 
 .navigation__button:hover .navigation__icon::after {
-    top: .8rem;
+    top: .6rem;
 }
 
 .navigation__checkbox:checked+.navigation__button .navigation__icon {
@@ -149,6 +147,10 @@
 
 @media (max-width: 768px) {
     .navigation__link:link, .navigation__link:visited {
-        font-size: 1.2rem;
+        font-size: 14px;
+        padding:unset !important;
+    }
+    .navigation__link:link span, .navigation__link:visited span {
+        font-size: 14px;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\registration;
+use Session;
 use Illuminate\Support\Facades\Hash;
 
 class registration_page extends Controller
@@ -15,7 +16,6 @@ class registration_page extends Controller
      */
     public function index()
     {
-        return view('index');
     }
 
     /**
@@ -28,6 +28,11 @@ class registration_page extends Controller
         //
     }
 
+    public function registration_validation()
+    {
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,18 +41,19 @@ class registration_page extends Controller
      */
     public function store(Request $request)
     {
-        $message = $this->validate(request(), [
-            'signup_email' => 'required|email:rfc,dns',
-            'username' => 'required',
-        ]);
+        $insert_data = new registration;
 
-        $insert = new registration;
-        $insert->username = $request->username;
-        $insert->email = $request->signup_email;
-        $insert->password = Hash::make($request->password);
-        $insert->save();
-        session()->flash('register_done', 'Your registeration is done');
-        return redirect('home');
+        $insert_data->username = $request['username'];
+        $insert_data->email = $request['email'];
+        $insert_data->password = $request['password'];
+        $insert_data->user_type = $request['type'];
+        $number_of_digits = 30;
+        $rand_number =  substr(number_format(time() * mt_rand(), 0, '', ''), 0, $number_of_digits);
+        $insert_data->provider_user_id =  $rand_number;
+        $insert_data->save();
+
+        session()->flash('register', 'You are register successfully');
+        return redirect('/');
     }
 
     /**
@@ -84,8 +90,8 @@ class registration_page extends Controller
         echo "<pre>";
         print_r($request->all());
 
-        $update_data = registration::where('email',$request->email)->update(['username'=>$request->username,"password"=>Hash::make($request->password), 'user_type'=>$request->user_type]);
-        session()->flash('register_done',"You're register with us successfully");
+        $update_data = registration::where('email', $request->email)->update(['username' => $request->username, "password" => Hash::make($request->password), 'user_type' => $request->user_type]);
+        session()->flash('register_done', "You're register with us successfully");
         Session()->flush();
         return redirect('/');
     }
